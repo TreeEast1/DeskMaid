@@ -92,6 +92,10 @@ deskmaid/
 - [python-pptx](https://python-pptx.readthedocs.io/) — PowerPoint 文件读取
 - [pdfplumber](https://github.com/jsvine/pdfplumber) — PDF 文件读取
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=TreeEast1/DeskMaid&type=Date)](https://star-history.com/#TreeEast1/DeskMaid&Date)
+
 ## 许可证
 
 MIT
