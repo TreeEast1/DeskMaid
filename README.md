@@ -2,6 +2,27 @@
 
 AI 智能桌面文件整理工具。扫描桌面文件，利用大语言模型按**真实生活场景**（而非文件格式）自动分类归档。
 
+## 平台支持
+
+- ✅ macOS：当前优先支持（作者主力环境）
+- 🕒 Windows：计划中（欢迎合作者一起推进）
+
+## 运行演示（CLI）
+
+> 下面是本项目 CLI 的真实输出截图（SVG，可在 GitHub 上直接清晰缩放）。
+
+### 查看帮助
+
+![deskmaid help](docs/assets/deskmaid-help.svg)
+
+### 运行（参数说明）
+
+![deskmaid run help](docs/assets/deskmaid-run-help.svg)
+
+### 配置 API
+
+![deskmaid config help](docs/assets/deskmaid-config-help.svg)
+
 ## 功能特性
 
 - **三种分类模式** — 根据需求选择不同深度的整理方式：
@@ -91,6 +112,13 @@ deskmaid/
 - [openpyxl](https://openpyxl.readthedocs.io/) — Excel 文件读取
 - [python-pptx](https://python-pptx.readthedocs.io/) — PowerPoint 文件读取
 - [pdfplumber](https://github.com/jsvine/pdfplumber) — PDF 文件读取
+
+## 贡献 / 合作
+
+欢迎任何形式的贡献：Bug 修复、Windows 适配、文档补充、功能建议。
+
+- 你可以直接提 Issue 描述需求/问题
+- 或者 Fork 后提 PR
 
 ## Star History
 
