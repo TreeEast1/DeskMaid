@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+dist/
+build/
+.eggs/
+.venv/
+venv/
+.env
+
+# OS / IDE
+.DS_Store
+__MACOSX/
+.vscode/
+.idea/
+
+# Tooling
+.claude/settings.local.json
