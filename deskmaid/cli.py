@@ -45,6 +45,7 @@ BANNER = Panel(
 def run(
     path: Optional[str] = typer.Option(None, "--path", "-p", help="目标路径（默认 ~/Desktop）"),
     mode: Optional[str] = typer.Option(None, "--mode", "-m", help="分类模式: quick/personal/deep"),
+    demo: bool = typer.Option(False, "--demo", help="演示模式：自动确认所有交互（用于截图/录屏）"),
 ) -> None:
     """扫描桌面文件，AI 分类，展示预案并执行整理。"""
     console.print(BANNER)
@@ -114,7 +115,7 @@ def run(
 
     if selected_mode in (ClassificationMode.PERSONAL, ClassificationMode.DEEP):
         existing_profile = load_profile()
-        profile = conduct_interview(console, existing_profile or None)
+        profile = conduct_interview(console, existing_profile or None, demo=demo)
         save_profile(profile)
         user_context = profile_to_prompt_context(profile)
 
@@ -158,6 +159,10 @@ def run(
             cat_table.add_row(str(i), cat["name"], cat.get("description", ""))
 
         console.print(Panel(cat_table, title="AI 建议的分类方案", border_style="blue"))
+
+        if demo:
+            console.print("[dim]--demo: 自动接受分类方案[/dim]")
+            break
 
         if Confirm.ask("\n接受此分类方案？"):
             break
@@ -214,7 +219,9 @@ def run(
     console.print(f"  [dim]分类统计:[/dim] {' | '.join(summary_parts)}\n")
 
     # Confirm execution
-    if not Confirm.ask("确认执行整理？"):
+    if demo:
+        console.print("[dim]--demo: 自动确认执行整理[/dim]")
+    elif not Confirm.ask("确认执行整理？"):
         console.print(Panel(
             "[yellow]操作已取消。[/yellow]",
             title="取消",

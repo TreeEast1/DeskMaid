@@ -25,11 +25,25 @@ def save_profile(profile: dict) -> None:
     )
 
 
-def conduct_interview(console: Console, existing_profile: dict | None = None) -> dict:
+def conduct_interview(
+    console: Console,
+    existing_profile: dict | None = None,
+    *,
+    demo: bool = False,
+) -> dict:
     """Conduct a 1-3 round interview to collect user preferences.
 
     If an existing profile is found, let the user choose to reuse, update, or redo it.
     """
+    if demo:
+        # Minimal, deterministic profile for demo/screenshot runs
+        return {
+            "role": "学生/开发者",
+            "file_patterns": "课程笔记、论文PDF、PPT/报告、项目资料、截图与临时下载",
+            "preferences": "优先按 工作/学习/生活/杂项 分类；工作中再按项目归类",
+            "updated_at": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        }
+
     if existing_profile:
         console.print(Panel(
             f"职业/角色: [bold]{existing_profile.get('role', '未设置')}[/bold]\n"
